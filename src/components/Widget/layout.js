@@ -3,39 +3,27 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Conversation from './components/Conversation';
-import Launcher from './components/Launcher';
 import './style.scss';
 
 const WidgetLayout = props => (
   <div
     className={
-      `rcw-widget-container ${props.fullScreenMode ? 'rcw-full-screen' : ''} ${props.showChat ? 'rcw-opened' : ''}`
+      `rcw-widget-container ${props.fullScreenMode ? 'rcw-full-screen' : ''} rcw-opened`
     }
   >
-    {props.showChat &&
-      <Conversation
-        title={props.title}
-        subtitle={props.subtitle}
-        sendMessage={props.onSendMessage}
-        senderPlaceHolder={props.senderPlaceHolder}
-        onQuickButtonClicked={props.onQuickButtonClicked}
-        profileAvatar={props.profileAvatar}
-        toggleChat={props.onToggleConversation}
-        showChat={props.showChat}
-        showCloseButton={props.showCloseButton}
-        disabledInput={props.disabledInput}
-        autofocus={props.autofocus}
-        titleAvatar={props.titleAvatar}
-      />
-    }
-    {props.customLauncher ?
-      props.customLauncher(props.onToggleConversation) :
-      !props.fullScreenMode &&
-      <Launcher
-        toggle={props.onToggleConversation}
-        badge={props.badge}
-      />
-    }
+    <Conversation
+      title={props.title}
+      subtitle={props.subtitle}
+      sendMessage={props.onSendMessage}
+      senderPlaceHolder={props.senderPlaceHolder}
+      onQuickButtonClicked={props.onQuickButtonClicked}
+      profileAvatar={props.profileAvatar}
+      showChat={true}
+      showCloseButton={props.showCloseButton}
+      disabledInput={props.disabledInput}
+      autofocus={props.autofocus}
+      titleAvatar={props.titleAvatar}
+    />
   </div>
 );
 
@@ -44,7 +32,6 @@ WidgetLayout.propTypes = {
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
   onSendMessage: PropTypes.func,
-  onToggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,
   onQuickButtonClicked: PropTypes.func,

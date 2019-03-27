@@ -10,7 +10,6 @@ const ConnectedWidget = props =>
     <Widget
       title={props.title}
       titleAvatar={props.titleAvatar}
-      subtitle={props.subtitle}
       handleNewUserMessage={props.handleNewUserMessage}
       handleQuickButtonClicked={props.handleQuickButtonClicked}
       senderPlaceHolder={props.senderPlaceHolder}
@@ -26,7 +25,6 @@ const ConnectedWidget = props =>
 ConnectedWidget.propTypes = {
   title: PropTypes.string,
   titleAvatar: PropTypes.string,
-  subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
   handleQuickButtonClicked: PropTypes.func,
   senderPlaceHolder: PropTypes.string,
@@ -39,8 +37,7 @@ ConnectedWidget.propTypes = {
 };
 
 ConnectedWidget.defaultProps = {
-  title: 'Welcome',
-  subtitle: 'This is your chat subtitle',
+  title: 'Welcome to LiveCircle',
   senderPlaceHolder: 'Type a message...',
   showCloseButton: true,
   fullScreenMode: false,

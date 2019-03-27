@@ -23,5 +23,5 @@ Launcher.propTypes = {
 };
 
 export default connect(store => ({
-  chatOpened: store.behavior.get('showChat')
+  chatOpened: true
 }))(Launcher);
